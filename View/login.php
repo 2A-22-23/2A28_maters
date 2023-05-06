@@ -1,3 +1,14 @@
+<?php
+$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+$randomString = '';
+for ($i = 0;$i < 6; $i++) {
+    $index = rand(0, strlen($characters) - 1);
+    $randomString .= $characters[$index];
+    
+}
+
+?>
+
 
 <!doctype html>
 <html lang="en">
@@ -13,7 +24,25 @@
     <link rel="stylesheet" href="css/style.css">
     
 
-	
+	<style>
+    .captcha-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.captcha-container p {
+    margin-right: 10px;
+}
+.captcha-container input {
+    width: 150px;
+    margin-left: 10px;
+}
+</style>
 	
 	</head>
 <body>
@@ -34,7 +63,7 @@
 			      		</div>
 								
 			      	</div>
-                      <form  action="login1.php" class="signin-form" method="GET">
+                      <form  action="login1.php" class="signin-form" method="POST">
         <table border="1" align="center">
         <div class="form-group mb-3">
             
@@ -50,16 +79,25 @@
                     <input class="form-control" type="password" name="Password" id="Password" placeholder="Password" required>
                
                     </div>
+                    <div class="captcha-container">
+    <p>I'm not a robot :      <?php echo $randomString; ?></p>
+    <input class="form-control" type="text" name="captcha" id="captcha"  required>
+</div>
+
             <tr align="center">
                 <td>
-                    <input type="submit" value="Save">
+                    <input type="submit" value="Login">
                 </td>
                 <td>
                     <input type="reset" value="Reset">
                 </td>
             </tr>
         </table>
-        <a href="adduser.php" >s'inscrire</a>
+        <a style='margin-right:130px;' href="adduser.php" >s'inscrire</a>
+
+
+
+        <a href="resetpasswordhtml.php" > forgot your password?</a>
     </form>
 		        </div>
 		      </div>
@@ -73,6 +111,20 @@
   <script src="js/popper.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/main.js"></script>
+  
+<script>
+    var captchaInput = document.getElementById('captcha');
+    captchaInput.addEventListener('blur', function() {
+        var captchaValue = captchaInput.value.toUpperCase();
+        if (captchaValue === '<?php echo $randomString; ?>') {
+            console.log('Captcha entered correctly');
+            // Do something if captcha is correct, e.g. submit form
+        } else {
+            console.log('Captcha entered incorrectly');
+            // Do something if captcha is incorrect, e.g. show error message
+        }
+    });
+</script>
   
    
 

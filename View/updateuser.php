@@ -27,9 +27,9 @@ if (
             $_POST['identity_card'],
             $_POST['Name'],
             $_POST['Email'],
- 
             $_POST['Sexe'],
             $_POST['Password'],
+            'Client'
         );
         $userC->updateuser($user, $_POST["identity_card"]);
         header('Location:Listusers.php');

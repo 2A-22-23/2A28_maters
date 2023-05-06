@@ -1,40 +1,30 @@
-<!-- <?php
-session_start(); // start the session
-
+<?php
 $con=mysqli_connect("localhost","root","","REVERSO2a28");
 if(!$con){
     die("connexion invalid");
+
+// Check if the connection was successful
 }
-else{
-    extract($_GET);
-    $sql = "SELECT  * FROM user WHERE identity_card = '$identity_card'";
-    $result=mysqli_query($con,$sql);
-    if($result && mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_array($result, MYSQLI_NUM);
-        if($Password==$row[4]){
-            if($row[5]=='Client'){
-                $_SESSION['user_type'] = 'client'; // set user type in session
-                $_SESSION['user_id'] = $row[0]; // set user ID in session
-                header('Location:index.php');
-            }
-            else{
-                if($row[5]=='ADMIN'){
-                    $_SESSION['user_type'] = 'admin'; // set user type in session
-                    $_SESSION['user_id'] = $row[0]; // set user ID in session
-                    header('Location:Listusers.php');
-                }
-                else{
-                    echo 'invalid';
-                }
-            }
-        }
-        else{
-            header('Location:login.php');
-        }
-    }
-    else{
-        echo '<script>alert("PASSWORD or IDENTITY CARD ARE INCORRECT ");</script>';
-        include('login.php');
-    }
+
+// Define the SQL query to retrieve the top 3 users with the highest sales
+$sql = "SELECT *
+        FROM user
+        ORDER BY identity_card DESC
+        LIMIT 3";
+
+// Execute the query and retrieve the results
+$result = mysqli_query($con, $sql);
+
+// Check if the query was executed successfully
+if (!$result) {
+    die("Query failed: " . mysqli_error($con));
 }
-?> -->
+
+// Loop through the results and display the entire row for each of the top 3 users with the highest sales
+while ($row = mysqli_fetch_assoc($result)) {
+    echo "User email: " . $row["Email"] . " - User Name: " . $row["Name"] . " - Sales: " . $row["identity_card"] . "<br>";
+}
+
+// Close the database connection
+mysqli_close($con);
+?>

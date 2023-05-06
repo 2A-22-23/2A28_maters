@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <style>
+        .image{
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            margin-left: 50px;
+        }
+    </style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords"
+        content="tailwind,tailwindcss,tailwind css,css,starter template,free template,admin templates, admin template, admin dashboard, free tailwind templates, tailwind example">
+    <!-- Css -->
+    <link rel="stylesheet" href="./dist/styles.css">
+    <link rel="stylesheet" href="./dist/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i,700,700i" rel="stylesheet">
+    <title>REVERSO DASHBOARD</title>
+</head>
+
+<body>
+    <!--Container -->
+    <div class="mx-auto bg-grey-400">
+        <!--Screen-->
+        <div class="min-h-screen flex flex-col">
+            <!--Header Section Starts Here-->
+            <header class="bg-nav">
+                <div class="flex justify-between">
+                    <div class="p-1 mx-3 inline-flex items-center">
+                        <i class="fas fa-bars pr-2 text-white" onclick="sidebarToggle()"></i>
+                        <h1 class="text-white p-2">REVERSO DASHBOARD</h1>
+                    </div>
+                   
+                </div>
+            </header>
+            <!--/Header-->
+
+            <div class="flex flex-1">
+                <!--Sidebar-->
+                <aside id="sidebar"
+                    class="bg-side-nav w-1/2 md:w-1/6 lg:w-1/6 border-r border-side-nav hidden md:block lg:block">
+
+                    <ul class="list-reset flex flex-col">
+                        <li class=" w-full h-full py-3 px-2 border-b border-light-border bg-white">
+                            <a href="index-dashboard.html"
+                                class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                                <i class="fas fa-tachometer-alt float-left mx-2"></i>
+                                Dashboard
+                                <span><i class="fas fa-angle-right float-right"></i></span>
+                            </a>
+                        </li>
+                    <li class="w-full h-full py-3 px-2 border-b border-light-border bg-white">
+                        <a href="Listusers.php" class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                            <i class="fas fa-table float-left mx-2"></i>
+                            user management
+                            <span><i class="fa fa-angle-right float-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="w-full h-full py-3 px-2 border-b border-light-border bg-white">
+                        <a href="ListLivraison.php" class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                            <i class="fab fa-wpforms float-left mx-2"></i>
+                            delivery management
+                            <span><i class="fa fa-angle-right float-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="w-full h-full py-3 px-2 border-b border-light-border bg-white">
+                        <a href="Listraining.html"
+                            class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                            <i class="fas fa-table float-left mx-2"></i>
+                            training management
+                            <span><i class="fa fa-angle-right float-right"></i></span>
+                        </a></li>
+                        <li class="w-full h-full py-3 px-2 border-b border-light-border bg-white">
+                            <a href="gestionproduit.html"
+                                class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                                <i class="fas fa-table float-left mx-2"></i>
+                                product management
+                                <span><i class="fa fa-angle-right float-right"></i></span>
+                            </a></li>
+                            <li class="w-full h-full py-3 px-2 border-b border-light-border bg-white">
+                                <a href="gestionreclamation.html"
+                                    class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                                    <i class="fas fa-table float-left mx-2"></i>
+                                    reclamation management
+                                    <span><i class="fa fa-angle-right float-right"></i></span>
+                                </a></li>
+                   
+                    </ul>
+
+                </aside>
+                <!--/Sidebar-->
+                <!--Main-->
+                <main class="bg-white-300 flex-1 p-3 overflow-hidden">
+
+                    <div class="flex flex-col">
+                    
+
+                        <!-- Card Sextion Starts Here -->
+                        <div class="flex flex-1 flex-col md:flex-row lg:flex-row mx-2">
+
+                            <!-- card -->
+
+                            <div class="rounded overflow-hidden shadow bg-white mx-2 w-full">
+                                <div class="px-6 py-2 border-b border-light-grey">
+                                    <div class="font-bold text-xl">Trending Products</div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table text-grey-darkest">
+                                        <thead class="bg-black text-white text-normal">
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Product</th>
+                                                <th scope="col">Last Week</th>
+                                                <th scope="col">This Week</th>
+                                                <th scope="col">Variation</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>
+                                                    <img class="image" src="reverso2/images/f22_04_a05_102437_23179_on_a.jpg">
+                                                  
+                                                </td>
+                                                <td>4500</td>
+                                                <td>4600</td>
+                                                <td>
+                                                    <span class="text-green-500"><i
+                                                            class="fas fa-arrow-up"></i>5%</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>
+                                                   <img class="image" src="reverso2/images/photo-produit-pull-col-roule-a-mailles-plates,produit-1140-1490567858.jpg">
+                                                </td>
+                                                <td>10000</td>
+                                                <td>3000</td>
+                                                <td>
+                                                    <span class="text-red-500"><i
+                                                            class="fas fa-arrow-down"></i>65%</span>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>
+                                                    <img class="image" src="reverso2/images/strong-cargo.jpg">
+                                                </td>
+                                                <td>10000</td>
+                                                <td>3000</td>
+                                                <td>
+                                                    <span class="text-red-500"><i
+                                                            class="fas fa-arrow-down"></i>65%</span>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row">4</th>
+                                                <td>
+                                                    <button
+                                                        class="bg-blue-500 hover:bg-blue-800 text-white font-light py-1 px-2 rounded-full">
+                                                        product 4
+                                                    </button>
+                                                </td>
+                                                <td>10000</td>
+                                                <td>3000</td>
+                                                <td>
+                                                    <span class="text-green-500"><i
+                                                            class="fas fa-arrow-up"></i>65%</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">4</th>
+                                                <td>
+                                                    <button class="bg-orange-500 hover:bg-orange-800 text-white font-light py-1 px-2 rounded-full">
+                                                        -
+                                                    </button>
+                                                </td>
+                                                <td>-</td>
+                                                <td>-</td>
+                                                <td>
+                                                    <span class="text-green-500"><i class="fas fa-arrow-up"></i>-</span>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <li class="w-full h-full py-3 px-2 border-b border-light-border bg-white">
+                                    <a href="index.php" class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                                        <i class="fab fa-wpforms float-left mx-2"></i>
+                                        check the web site
+                                        <span><i class="fa fa-angle-right float-right"></i></span>
+                                    </a>
+                                </li>
+
+                                
+                            </div>
+                          
+
+                        </div>
+                        <!-- /Cards Section Ends Here -->
+
+                       
+                           
+
+                            
+                    
+                  
+                    </div>
+                </main>
+                <!--/Main-->
+            </div>
+           
+           
+
+        </div>
+
+    </div>
+    <script src="./main.js"></script>
+</body>
+
+</html>

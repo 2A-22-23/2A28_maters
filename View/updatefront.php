@@ -1,4 +1,21 @@
 
+
+<?php
+session_start();
+
+// Check if the identity_card session variable is set
+if (isset($_SESSION['identity_card'])) {
+    // Use the identity_card session variable
+    $identity_card = $_SESSION['identity_card'];
+
+    // Do something with the identity_card variable
+    // ...
+} else {
+    // The identity_card session variable is not set
+    // Handle the error
+}
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -46,7 +63,7 @@
             
                 <label for="number" class="label"> Identity_card
                 </label>
-            <input type="hidden" class="form-control"  name="identity_card" id="identity_card" maxlength="20" value=<?php echo $_GET["id"] ?> >
+            <input type="hidden" class="form-control"  name="identity_card" id="identity_card" maxlength="20" value=<?php echo $identity_card ?> disabled>
                 </div>
         <div class="form-group mb-3">
             

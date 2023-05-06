@@ -1,11 +1,26 @@
 <?php  
+
+session_start();
+
+// Check if the identity_card session variable is set
+if (isset($_SESSION['identity_card'])) {
+    // Use the identity_card session variable
+    $identity_card = $_SESSION['identity_card'];
+
+    // Do something with the identity_card variable
+    // ...
+} else {
+    // The identity_card session variable is not set
+    // Handle the error
+}
+
 $con=mysqli_connect("localhost","root","","REVERSO2a28");
 if(!$con){
     die("connexion invalid");
 }
 else{
 //   connexion valid
-extract($_POST);
+
 
 $sql = "SELECT  * FROM user WHERE identity_card = '$identity_card'";
 
@@ -14,7 +29,7 @@ $result = mysqli_query($con, $sql);
 
 // Check if the query returned a result
 if($result && mysqli_num_rows($result) > 0) {
-    header('Location:updatefront.php?id='.$identity_card);
+    header('Location:updatefront.php');
     $name = $_POST['Name'];
     $email = $_POST['Email'];
     $password = $_POST['Password'];

@@ -1,4 +1,3 @@
-    <!-- gestion utilisateurs-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,6 +5,10 @@
 include '../Controller/userC.php';
 $userC = new userC();
 $list = $userC->listusers();
+
+
+
+
 ?>
 
 <head>
@@ -53,14 +56,14 @@ $list = $userC->listusers();
                             </a>
                         </li>
                     <li class="w-full h-full py-3 px-2 border-b border-light-border bg-white">
-                        <a href="tables.html" class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                        <a href="Listusers.php" class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                             <i class="fas fa-table float-left mx-2"></i>
                             user management
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
                     </li>
                     <li class="w-full h-full py-3 px-2 border-b border-light-border bg-white">
-                        <a href="mail.html" class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                        <a href="ListLivraison.php" class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                             <i class="fab fa-wpforms float-left mx-2"></i>
                             delivery management
                             <span><i class="fa fa-angle-right float-right"></i></span>
@@ -116,6 +119,7 @@ $list = $userC->listusers();
                                  Clients (Users and Admins)
                             </div>
                             <div class="p-3">
+                                
                                 <table border="1" align="center" class="table-responsive w-full rounded">
                                  
                                     <tr>
@@ -124,9 +128,11 @@ $list = $userC->listusers();
             <th>Email</th>
             <th>Sexe</th>
             <th>Password</th>
-            <th>Role</th>
+            <th>Role <th>
+            
             <th>Update</th>
             <th>Delete</th>
+            
         </tr>
         <?php
         foreach ($list as $user) {
@@ -141,6 +147,7 @@ $list = $userC->listusers();
                 <td class="border px-4 py-2"><?= $user['Sexe']; ?></td>
                 <td class="border px-4 py-2"><?= $user['Password']; ?></td>
                 <td class="border px-4 py-2"><?= $user['Role']; ?></td>
+                <td class="border px-4 py-2"><?= $user['login_time']; ?></td>
                 <td align="center">
                     <form method="POST" action="updateuser.php">
                         <input type="submit" name="update" value="Update">
@@ -157,6 +164,32 @@ $list = $userC->listusers();
                                     </table>
                                
                             </div>
+                            <div style="height: 150px;
+            width: 400px;"
+            class="shadow bg-warning border-l-8 hover:bg-warning-dark border-warning-dark mb-2 p-2 md:w-1/4 mx-2">
+            <div class="p-4 flex flex-col">
+            <a href="#" class="no-underline text-white text-2xl">
+    <?php
+    // Get the count of rows in the user table
+    $pdo = AConfig::getConnexion();
+    $query = "SELECT COUNT(*) FROM user";
+    $stmt = $pdo->query($query);
+    $count = $stmt->fetchColumn();
+
+    // Output the count value
+    echo $count;
+    ?>
+</a>
+
+                <a href="#" class="no-underline text-white text-lg">
+                    number of users
+                </a>
+                <a href="#" class="no-underline text-white text-lg">
+                    every day we grow bigger!
+                </a>
+            </div>
+        </div>
+  
                             <li class="w-full h-full py-3 px-2 border-b border-light-border bg-white">
                                 <a href="reverso2/utilisateur.html" class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                                     <i class="fab fa-wpforms float-left mx-2"></i>
@@ -176,139 +209,36 @@ $list = $userC->listusers();
                     <!--/Grid Form-->
                 </div>
                 <div style="display: flex; align-items: center;  margin-left: 20px;">
-                    <label for="Recherche">Search</label>
-                    <input class="border px-4 py-2" type="text" style="margin-right: 10px;">
-                    <button style=" width: 70px; 
-                    height: 30px;
-                    border-radius: 15px;
-                    background-color: rgb(233, 178, 59);
-                    color: black;"> Search </button>
+                <li class="w-full h-full py-3 px-2 border-b border-light-border bg-white">
+                                <input id="search-input" type="text" placeholder="Search...">
+
+                                
+                            </li>
+
+                        
+                </div>
+    </div>
+
+                <title>AJAX Search Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#search-input").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("table tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
                 </div>
             </main>
-            <div style="height: 200px;
-            width: 100px;"
-            class="shadow bg-warning border-l-8 hover:bg-warning-dark border-warning-dark mb-2 p-2 md:w-1/4 mx-2">
-            <div class="p-4 flex flex-col">
-                <a href="#" class="no-underline text-white text-2xl">
-                    900
-                </a>
-                <a href="#" class="no-underline text-white text-lg">
-                    number of users
-                </a>
-            </div>
-        </div>
+         
 
 
 </div>
           
-            <!--/Main-->
-       
-       
 
-</div>
-<!-- Centered Modal -->
-<div id='centeredModal' class="modal-wrapper">
-    <div class="overlay close-modal"></div>
-    <div class="modal modal-centered">
-        <div class="modal-content shadow-lg p-5">
-            <div class="border-b p-2 pb-3 pt-0 mb-4">
-                <div class="flex justify-between items-center">
-                    View User
-                    <span class='close-modal cursor-pointer px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200'>
-                        <i class="fas fa-times text-gray-700"></i>
-                    </span>
-                </div>
-            </div>
-            <!-- Modal content -->
-            <tr>
-                <div>
-                <td class="border px-4 py-2">Malek</td>
-            </div>
-            <div><td class="border px-4 py-2">Email@gmail.com</td></div>
-                <div>
-                    <td class="border px-4 py-2">Male</td>
-                </div>
-             <div>
-                <td class="border px-4 py-2">********</td>
-             </div>
-                
-               
-            </tr>
-        </div>
-    </div>
-</div>
-<!-- Centered With a Form Modal -->
-<div id='centeredFormModal' class="modal-wrapper">
-    <div class="overlay close-modal"></div>
-    <div class="modal modal-centered">
-        <div class="modal-content shadow-lg p-5">
-            <div class="border-b p-2 pb-3 pt-0 mb-4">
-                <div class="flex justify-between items-center">
-                    Modify User
-                    <span class='close-modal cursor-pointer px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200'>
-                        <i class="fas fa-times text-gray-700"></i>
-                    </span>
-                </div>
-            </div>
-            <!-- Modal content -->
-            <form id='form_id' class="w-full">
-                <div class="flex flex-wrap -mx-3 mb-6">
-                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-light mb-1"
-                            for="grid-first-name">
-                            Name
-                        </label>
-                        <input
-                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white-500"
-                            id="grid-first-name" type="text" placeholder="Enter Name">
-                        <p class="text-red-500 text-xs italic">Please fill out this field.</p>
-                    </div>
-                    <div class="w-full md:w-1/2 px-3">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-light mb-1"
-                            for="grid-last-name">
-                            Email
-                        </label>
-                        <input
-                            class="appearance-none block w-full bg-gray-200 text-grey-darker border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600"
-                            id="grid-last-name" type="text" placeholder="example@gmail.com">
-                    </div>
-                </div>
-              
-                <div class="flex flex-wrap -mx-3 mb-2">
-                    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                        <label class="block uppercase tracking-wide text-grey-darker text-xs font-light mb-1"
-                            for="grid-city">
-                                Adress
-                        </label>
-                        <input
-                            class="appearance-none block w-full bg-grey-200 text-grey-darker border border-grey-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey"
-                            id="grid-city" type="text" placeholder="Enter adress">
-                    </div>
-                    <div class="w-full md:w-1/2 px-3">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-light mb-1"
-                            for="grid-last-name">
-                            Passowrd
-                        </label>
-                        <input
-                            class="appearance-none block w-full bg-gray-200 text-grey-darker border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600"
-                            id="grid-last-name" type="text" placeholder="NEW Password">
-                    </div>
-                  
-                    
-                </div>
-
-                <div class="mt-5">
-                    <button class='btn btn-primary bg-green-500 hover:bg-green-800 text-white font-bold py-2 px-4 rounded'> Submit
-                    </button>
-                    <span
-                        class='close-modal cursor-pointer bg-red-200 hover:bg-red-500 text-red-900 font-bold py-2 px-4 rounded'>
-                        Close
-                    </span>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 
 
 <script src="./main.js"></script>
