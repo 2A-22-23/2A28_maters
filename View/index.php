@@ -62,11 +62,11 @@
               <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
                 <ul class="site-menu main-menu js-clone-nav ml-auto ">
                   <li class="active"><a href="index.php" class="nav-link">Home</a></li>
-                  <li><a href="//zgolli" class="nav-link">Command</a></li>
+                  <li><a href="afficherListePosts.php" class="nav-link">Blog</a></li>
                   <li><a href="//bigi" class="nav-link">Product</a></li>
                   <li><a href="addLivraison.php" class="nav-link">Delivery</a></li>
                   <li><a href="//malikk" class="nav-link">training</a></li>
-                  <li><a href="boubaa" class="nav-link">Reclamation</a></li>
+                  <li><a href="ajouterAdherent.php" class="nav-link">Reclamation</a></li>
                  <li><a href="account.php" class="nav-link"><img style="width:30px; height:30px;border:solid;
                  border-radius:15px; " src="images/malllk.png"></a></li>
                 </ul>

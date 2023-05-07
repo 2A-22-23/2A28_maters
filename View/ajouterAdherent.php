@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title> Distunis</title>
+  <title> REVERSO</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <style>
   body{
-        background-image: url('hero-bg.png');
+        background-image: url('images/backgrounduser.jpg');
   background-size: cover;
   background-position: center;
     }
@@ -146,20 +146,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="row align-items-center">
 
         <div class="col-11 col-xl-2">
-          <h1 class="mb-0 site-logo"><a href="index.html" class="text-white mb-0">Distunis</a></h1>
+          <h1 class="mb-0 site-logo"><a href="index.php" class="text-white mb-0">REVERSO</a></h1>
         </div>
         <div class="col-12 col-md-10 d-none d-xl-block">
           <nav class="site-navigation position-relative text-right" role="navigation">
 
             <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
-              <li><a href="listings.html"><span>Mon compte</span></a></li>
-              <li><a href="about.html"><span>Achat</span></a></li>
-              <li><a href="blog.html"><span>Blog</span></a></li>
-              <li><a href="contact.html"><span>Reclamation</span></a></li>
-              <a href="notification.php" class="notification">
-  <span>Notifications</span>
-  <span class="badge">0</span>
-     </a>
+              <li><a href="index.php"><span>Home</span></a></li>
+              <li><a href="about.html"><span>Blog</span></a></li>
+              <li><a href="blog.html"><span>Product</span></a></li>
+              <li><a href="addLivraison.php"><span>Delivery</span></a></li>
+              <li><a href="contact.html"><span>Training</span></a></li>
+              <li><a href="ajouterAdherent.php"><span>reclamation</span></a></li>
+              <li><a href="account.php" class="nav-link"><img style="width:30px; height:30px;border:solid;
+                 border-radius:15px; " src="images/malllk.png"></a></li>
             </ul>
            
           </nav>
@@ -192,7 +192,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
               <div class="col-lg-8">
                 <div class="contact-wrap">
-                  <h3 class="mb-4 text-center">Votre avis compte pour nous !</h3>
+                  <h3 class="mb-4 text-center">your opinion matters to us  !</h3>
                   <div id="form-message-warning" class="mb-4 w-100 text-center"></div>
                   <div id="form-message-success" class="mb-4 w-100 text-center">
                     Your message was sent, thank you!
@@ -206,13 +206,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                       </div>
                       <div class="col-md-12">
                         <div class="form-group">
-                          <input type="text" class="form-control" name="nom" id="nom" placeholder="Objet" onkeypress="return isEmpty()">
+                          <input type="text" class="form-control" name="nom" id="nom" placeholder="Object" onkeypress="return isEmpty()">
                         </div>
                       </div>
                       <div class="col-md-12">
                         <div class="form-group">
                           <textarea name="description" class="form-control" id="description" cols="30" rows="8"
-                            placeholder="Saisir votre Reclamation"  ></textarea>
+                            placeholder="ENTER your Reclamation Here"  ></textarea>
                         </div>
                       </div>
                       <div class="col-md-12">

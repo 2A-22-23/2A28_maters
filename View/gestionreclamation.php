@@ -10,7 +10,7 @@
 	$listereponses=$reponseC->afficherreponses(); 
 
 // Connect to the database
-$dsn = 'mysql:host=localhost;dbname=web';
+$dsn = 'mysql:host=localhost;dbname=reverso2a28';
 $username = 'root';
 $password = '';
 $conn = new PDO($dsn, $username, $password);
@@ -54,7 +54,7 @@ if (isset($_GET['unarchive'])) {
     <link rel="stylesheet" href="./dist/styles.css">
     <link rel="stylesheet" href="./dist/all.css">
     
-    <title>DisTunis</title>
+    <title>REVERSO</title>
 </head>
 
 <body>
@@ -67,7 +67,7 @@ if (isset($_GET['unarchive'])) {
             <div class="flex justify-between">
                 <div class="p-1 mx-3 inline-flex items-center">
                     <i class="fas fa-bars pr-2 text-white" onclick="sidebarToggle()"></i>
-                    <h1 class="text-white p-2">DisTunis</h1>
+                    <h1 class="text-white p-2">REVERSO</h1>
                 </div>
                
             </div>
@@ -81,7 +81,7 @@ if (isset($_GET['unarchive'])) {
 
             <ul class="list-reset flex flex-col">
                 <li class=" w-full h-full py-3 px-2 border-b border-light-border bg-white">
-                    <a href="index.html"
+                    <a href="index-dashboard.html"
                         class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                         <i class="fas fa-tachometer-alt float-left mx-2"></i>
                         Dashboard
@@ -89,14 +89,14 @@ if (isset($_GET['unarchive'])) {
                     </a>
                 </li>
             <li class="w-full h-full py-3 px-2 border-b border-light-border bg-white">
-                <a href="tables.html" class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                <a href="Listusers.php" class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                     <i class="fas fa-table float-left mx-2"></i>
                     user management
                     <span><i class="fa fa-angle-right float-right"></i></span>
                 </a>
             </li>
             <li class="w-full h-full py-3 px-2 border-b border-light-border bg-white">
-                <a href="mail.html" class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                <a href="ListLivraison.php" class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                     <i class="fab fa-wpforms float-left mx-2"></i>
                     delivery management
                     <span><i class="fa fa-angle-right float-right"></i></span>
@@ -117,7 +117,7 @@ if (isset($_GET['unarchive'])) {
                         <span><i class="fa fa-angle-right float-right"></i></span>
                     </a></li>
                     <li class="w-full h-full py-3 px-2 border-b border-light-border bg-white">
-                        <a href="gestionreclamation.html"
+                        <a href="gestionreclamation.php"
                             class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                             <i class="fas fa-table float-left mx-2"></i>
                             reclamation management
@@ -158,10 +158,12 @@ if (isset($_GET['unarchive'])) {
 				                 <th class="border w-1/6 px-4 py-2">Objet</th>
 				                  <th class="border w-1/6 px-4 py-2">Message</th>
 				           <th class="border w-1/6 px-4 py-2">email</th>
-                         <th  class="border w-1/6 px-4 py-2">Archiver</th>
+                           <th  class="border w-1/6 px-4 py-2">Archiver</th>
+                         <th  class="border w-1/6 px-4 py-2">Modifier</th>
 				         <th  class="border w-1/6 px-4 py-2">Supprimer</th>
                          <th  class="border w-1/6 px-4 py-2">Repondre</th>
-                         <th  class="border w-1/6 px-4 py-2">Modifier</th>
+                        
+    
 
 
 
@@ -259,9 +261,9 @@ if (isset($_GET['unarchive'])) {
 				       <th class="border w-1/6 px-4 py-2">ID</th>
 				       <th class="border w-1/6 px-4 py-2">ID Reclamation</th>
 				         <th class="border w-1/6 px-4 py-2">Reponse</th>
-                
-            	       <th  class="border w-1/6 px-4 py-2">Modifier</th>
+                         <th  class="border w-1/6 px-4 py-2">Modifier</th>
 				       <th  class="border w-1/6 px-4 py-2">Supprimer</th>
+                      
                         </thead>
 			          <?php
 				     foreach($listereponses as $reponse){
